@@ -1,0 +1,488 @@
+@font-face {
+    font-family: 'SourceCode';
+    src: url('../fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('woff2');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Italic.ttf') format('woff2')  
+}
+
+/* Declaramos las variables con colores */
+:root {
+    --color1: #2657a7;
+    --color2: #3370e9;
+    --color3: rgba(13, 192, 168, 0.6);
+}
+
+/* Definimos el cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color1);
+    background-color: var(--color3);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'SourceCode', monospace;
+}
+
+/* Definimos la cabecera */
+.cabecera {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    background-color: var(--color1);
+    color: rgb(37, 36, 36);
+    padding: 20px 0;
+    /* Sombreamos un poco para darle profundidad */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cabecera .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cabecera .logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Usamos una transición suave */
+    transition: transform 0.3s ease;
+}
+.cabecera .logo img:hover {
+    transform: scale(1.1);
+}
+.cabecera .logo h1 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+.cabecera .producto {
+    color: rgb(234, 255, 0);
+}
+.cabecera .producto img {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(234, 255, 0);
+    /* Agregamos bordes redondeados a la imagen */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cabecera button {
+    background-color: var(--color2);
+    color: rgb(37, 36, 36);
+    cursor: pointer;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    border-radius: 5px;
+}
+.cabecera button:hover {
+    background-color: var(--color3);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Definimos la zona de navegación */
+.navegacion {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color2);
+}
+.navegacion a {
+    text-decoration: none;
+    padding: 14px 20px;
+    transition: color 0.5s ease;
+    color: rgb(37, 36, 36);
+}
+.navegacion a:hover {
+    color: white;
+}
+
+/* Añadimos estilos para el menú de dos niveles */
+.navegacion > div {
+    position: relative;
+    margin-top: 15px;
+}
+.navegacion > div > div {
+    display: none;
+    position: absolute;
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.navegacion > div:hover > div {
+    display: flex;
+}
+.navegacion > div > div > a {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Añadimos estilos para las migas de pan */
+.migas-de-pan ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.migas-de-pan li {
+    display: inline;
+}
+.migas-de-pan li+li:before {
+    content: "/";
+    padding: 0 10px;
+}
+.migas-de-pan a {
+    text-decoration: none;
+    color: var(--color1);
+}
+.migas-de-pan a:hover {
+    text-decoration: underline;
+}
+
+
+/* Definimos la zona de contenidos 1 */
+.contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+        "productos productos"
+        "tabla productoDestacado"
+        "empresas empresas";
+}
+.productos {
+    width: 60%;
+    margin: 35px auto;
+    text-align: center;
+    grid-area: productos;
+    display: grid;
+    /* Definimos 200px para cada columna y que se reparta si no queda sitio */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+.productos .tarjetaD {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--color1);
+    color: white;
+}
+.productos .tarjeta4 img {
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Definimos nuestra tabla */
+.tabla {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 25px;
+    grid-area: tabla;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    color: rgb(37, 36, 36);
+}
+.tabla table {
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabla th,
+.tabla td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    color: rgb(37, 36, 36);
+    font-family: 'SourceCode', monospace;
+}
+.tabla tr:nth-child(odd) {
+    background-color: var(--color2);
+    color: var(--color1);
+}
+.tabla caption {
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Definimos el producto a destacar */
+.productoDestacado {
+    grid-area: productoDestacado;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color1);
+    color: var(--color2);
+    padding: 20px;
+    color: white;
+}
+.productoDestacado img {
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Definimos las tarjetas de las empresas */
+.empresas {
+    width: 60%;
+    height: 100%;
+    margin: 25px auto;
+    margin-bottom: 50px;
+    ;
+    grid-area: empresas;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+.empresas .tarjeta1, .tarjeta3 {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--color1);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: filter 0.5s ease;
+}
+.empresas .tarjeta2, .tarjeta4 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    padding: 30px;
+    padding-top: 50px;
+    padding-bottom: 12px;
+    background-color: var(--color1);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: filter 0.5s ease;
+}
+ /* Definimos el cambio de brillo al seleccionar con el cursor */
+.empresas .tarjeta1:hover,
+.empresas .tarjeta2:hover,
+.empresas .tarjeta3:hover,
+.empresas .tarjeta4:hover {
+    filter: brightness(80%);
+}
+.empresas .tarjeta .producto img {
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+/* Definimos la zona de contenidos 2 */
+.contenido2 {
+    display: grid;
+    color: rgb(37, 36, 36);
+    grid-template-rows: auto auto;
+    /* Definimos el espacio entre filas y columnas */
+    gap: 20px;
+}
+.contenido2 .titulo {
+    text-align: center;
+    font-family: 'SourceCode', monospace;
+}
+.contenido2 .noticia {
+    column-count: 2;
+    column-gap: 40px;
+    margin-bottom: 25px;
+    column-rule: 1px solid var(--color2);
+}
+.contenido2 .noticia p {
+    column-count: 2;
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: 'SourceCode', monospace;
+}
+.contenido2 .noticia p::first-letter {
+    font-size: 35px;
+    float: left;
+    margin-right: 5px;
+    line-height: 1;
+}
+.contenido2 .noticia div {
+    width: 1px;
+    background-color: var(--color2);
+}
+.contenido2 img {
+    width: auto;
+    height: auto;
+    padding: 10px 0;
+}
+
+
+/* Definimos el pie de página*/
+footer {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-around;
+    background-color: var(--color1);
+    color: rgb(37, 36, 36);
+    padding: 20px;
+}
+footer .bloque {
+    flex: 1;
+}
+/*  definimos los bloques */
+footer .bloque1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque1 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque1 input[type="checkbox"]:hover {
+    outline: 1px solid var(--color2);
+}
+
+/* Segundo bloque */
+footer .bloque2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque2 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque2 ul {
+    list-style-type: square;
+}
+footer .bloque2 ul li:hover {
+    color: var(--color3);
+}
+
+/* Tercer bloque */
+footer .bloque3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque3 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque3 img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--color2);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+footer .bloque3 img:hover {
+    background-color: var(--color3);
+    border-color: var(--color3);
+}
+
+
+/*     -----------------------    */
+
+
+/* Definimos las modificaciones para cuando 620px o menos */
+@media screen and (max-width: 620px) {
+    /* Condiciones de Cabecera */
+    /* Ocultamos el producto de la cabecera */
+    .cabecera .producto {
+        display: none;
+    }
+    /* Juntamos los botones de contacto e inicio de secion */
+    .cabecera button {
+        order: 2;
+    }
+
+    /* Condiciones de Navegación */
+    .navegacion a {
+        display: block;
+        width: 100%;
+    }
+
+    /* Añadimos estilos para el menú de dos niveles */
+    .navegacion > div > div {
+        display: none;
+        position: static;
+        background-color: var(--color2);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .navegacion > div:active > div {
+        display: block;
+    }
+    .navegacion > div > div > a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    /* Condiciones de zona de contenidos 1 */
+    .contenido1 .tabla {
+        display: none;
+    }
+    /* Bloquea todas las tarjetas */
+    .contenido1 .productos .tarjetaA,
+    .contenido1 .productos .tarjetaB,
+    .contenido1 .productos .tarjetaC,
+    .contenido1 .productos .tarjetaD {
+        display: block;
+    }
+    .contenido1 .productos .tarjetaD {
+        display: none;
+    }
+    .contenido1 .empresas {
+        display: none;
+    }
+    /* Llevamos el producto destacado a la izquierda para que se acople lo máximo posible */
+    .productoDestacado {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* Condiciones de zona de contenido 2 */
+    /* Cambia el título de la noticia a minúsculas */
+    .contenido2 .titulo {
+        text-transform: lowercase;
+    }
+    /* Hace que el texto de la noticia aparezca solo en una columna */
+    .contenido2 .noticia p {
+        column-count: 1;
+    }
+    /* Quita la letra capital */
+    .contenido2 .noticia p::first-letter {
+        float: none;
+    }
+    /* Solo muestra una imagen */
+    .contenido2 .noticia img:first-of-type {
+        display: none;
+    }
+
+
+    /* Condiciones del pie de página */
+    /* Ocultamos el bloque de Cookies y redes sociales */
+    footer .bloque1, footer .bloque3 {
+        display: none;
+    }
+    /* Cambiamos la dirección y quitamos la viñetas */
+    footer .bloque2 ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+    }
+    footer .bloque2 ul li {
+        margin: 0 40px;
+    }
+    /* Modificamos para que se subraye al seleccionar */
+    footer .bloque2 ul li:hover {
+        text-decoration: underline;
+    }
+}

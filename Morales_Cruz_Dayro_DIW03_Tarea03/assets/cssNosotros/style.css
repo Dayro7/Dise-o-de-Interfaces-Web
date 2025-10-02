@@ -1,0 +1,580 @@
+@font-face {
+    font-family: 'SourceCode';
+    src: url('../fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('woff2');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Italic.ttf') format('woff2')
+}
+
+/* Declaramos las variables con colores */
+:root {
+    --color1: #2657a7;
+    --color2: #3370e9;
+    --color3: rgba(13, 192, 168, 0.6);
+}
+
+/* Definimos el cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color1);
+    background-color: var(--color3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'SourceCode', monospace;
+}
+
+
+/*     -----------------------    */
+
+
+/* Definimos la cabecera */
+.cabecera {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    background-color: var(--color1);
+    color: rgb(37, 36, 36);
+    padding: 20px 0;
+    /* Sombreamos un poco para darle profundidad */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cabecera .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cabecera .logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Usamos una transición suave */
+    transition: transform 0.3s ease;
+}
+.cabecera .logo img:hover {
+    transform: scale(1.1);
+}
+.cabecera .logo h1 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+.cabecera .producto {
+    color: rgb(234, 255, 0);
+}
+.cabecera .producto img {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(234, 255, 0);
+    /* Agregamos bordes redondeados a la imagen */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cabecera button {
+    background-color: var(--color2);
+    color: rgb(37, 36, 36);
+    cursor: pointer;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    border-radius: 5px;
+}
+.cabecera button:hover {
+    background-color: var(--color3);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/*     -----------------------    */
+
+
+/* Definimos la zona de navegación */
+.navegacion {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color2);
+}
+.navegacion a {
+    text-decoration: none;
+    padding: 14px 20px;
+    transition: color 0.5s ease;
+    color: rgb(37, 36, 36);
+}
+.navegacion a:hover {
+    color: white;
+}
+
+/* Añadimos estilos para el menú de dos niveles */
+.navegacion > div {
+    position: relative;
+    margin-top: 10px;
+}
+.navegacion > div > div {
+    display: none;
+    position: absolute;
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.navegacion > div:hover > div {
+    display: flex;
+}
+.navegacion > div > div > a {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Añadimos estilos para las migas de pan */
+.migas-de-pan ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.migas-de-pan li {
+    display: inline;
+}
+.migas-de-pan li+li:before {
+    content: "/";
+    padding: 0 5px;
+}
+.migas-de-pan a {
+    text-decoration: none;
+    color: var(--color1);
+}
+.migas-de-pan a:hover {
+    text-decoration: underline;
+}
+
+
+/*     -----------------------    */
+
+
+/* Estilos para los productos */
+.productos {
+    display: flex;
+    justify-content: space-between;
+}
+#productos {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 3%;
+    /* Añade un margen alrededor de la sección de productos */
+}
+#productos .producto img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#productos .producto {
+    width: 30%;
+    transition: background-color 0.3s ease;
+}
+#productos .producto:hover {
+    background-color: bisque;
+    /* Cambia el color de fondo a bisque cuando se pasa el cursor sobre el producto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Añade un sombreado cuando se pasa el cursor sobre el producto */
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
+}
+
+
+/*     -----------------------    */
+
+
+/* Tabla */
+#tabla-productos table thead {
+    background-color: white;
+    color: #000;
+}
+/* Estilos para la tabla */
+#tabla-productos {
+    width: 40%;
+    margin: auto;
+    color: black;
+}
+#tabla-productos table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Elimina el espacio entre las celdas de la tabla */
+}
+#tabla-productos th,
+#tabla-productos td {
+    border: 4px solid #000;
+    padding: 10px;
+}
+/* Añade colores a las zonas de desarrollo */
+#tabla-productos .desarrollo,
+#tabla-productos .desarrollo-sub {
+    background-color: #439bd2;
+}
+/* Añade colores a las zonas de sistema y seguridad */
+#tabla-productos .sistema,
+#tabla-productos .seguridad,
+#tabla-productos .seguridad-sub {
+    background-color: #a8a877;
+    /* Tonalidad similar */
+}
+
+
+/*     -----------------------    */
+
+
+/* Herramientas de desarrollo */
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+#herramientas-desarrollo {
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+}
+#herramientas-desarrollo .articulos {
+    justify-content: space-between;
+}
+#herramientas-desarrollo img {
+    margin-right: 20px;
+    border-radius: 5%;
+    margin: 3%;
+}
+#herramientas-desarrollo h1,
+#equipo-desarrollo h1,
+#formulario-demo h1, 
+#tabla-productos h1,
+h1 {
+    background-color: var(--color1);
+    color: white;
+    margin: auto;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+}
+#equipo-desarrollo,
+#formulario-demo {
+    margin: auto;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+/*     -----------------------    */
+
+
+/* Equipo de desarrollo */
+#equipo-desarrollo {
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: palegoldenrod;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+#equipo-desarrollo .empleado1,
+#equipo-desarrollo .empleado2,
+#equipo-desarrollo .empleado3 {
+    display: flex;
+    align-items: center;
+    /* Centra los elementos verticalmente */
+}
+#equipo-desarrollo .empleado1 img,
+#equipo-desarrollo .empleado2 img,
+#equipo-desarrollo .empleado3 img {
+    margin-right: 20px;
+    border-radius: 5%;
+    margin: 3%
+}
+#equipo-desarrollo h2,
+#equipo-desarrollo p {
+    margin: 2%;
+}
+.destacado {
+    background-color: bisque;
+    border-radius: 10px;
+}
+
+
+/*     -----------------------    */
+
+
+/* Formulario */
+#formulario-demo .obligatorio,
+#formulario-demo .opcional {
+    margin: 5%;
+    width: 50%;
+    font-size: 18px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#formulario-demo input[type="text"],
+#formulario-demo input[type="email"],
+#formulario-demo textarea,
+#formulario-demo #product-info,
+#formulario-demo #appointment-date,
+#formulario-demo #appointment-time {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: auto;
+
+}
+
+#formulario-demo input[type="submit"] {
+    width: 40%;
+    background-color: var(--color2);
+    color: white;
+    padding: 14px 20px;
+    margin: auto;
+    margin-bottom: 1%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#formulario-demo input[type="reset"] {
+    width: 30%;
+    background-color: var(--color1);
+    color: white;
+    padding: 5px;
+    margin: auto;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#formulario-demo input[type="submit"]:hover {
+    background-color: #042b7a;
+}
+
+
+/*     -----------------------    */
+
+
+/* Definimos el pie de página*/
+footer {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-around;
+    background-color: var(--color1);
+    color: white;
+    padding: 20px;
+}
+footer .bloque {
+    flex: 1;
+}
+/*  definimos los bloques */
+footer .bloque1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque1 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque1 input[type="checkbox"]:hover {
+    outline: 1px solid var(--color2);
+}
+
+/* Segundo bloque */
+footer .bloque2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque2 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque2 ul {
+    list-style-type: square;
+}
+footer .bloque2 ul li:hover {
+    color: var(--color3);
+}
+
+/* Tercer bloque */
+footer .bloque3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .bloque3 h2 {
+    margin-bottom: 10px;
+}
+footer .bloque3 img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--color2);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+footer .bloque3 img:hover {
+    background-color: var(--color3);
+    border-color: var(--color3);
+}
+
+
+/*     -----------------------    */
+
+
+/* Definimos las modificaciones para cuando 620px o menos */
+@media screen and (max-width: 620px) {
+    /* Ocultamos el producto de la cabecera */
+    .cabecera .producto {
+        display: none;
+    }
+    /* Juntamos los botones de contacto e inicio de secion */
+    .cabecera button {
+        order: 2;
+    }
+
+
+    /* Condiciones de Navegación */
+    .navegacion a {
+        display: block;
+        width: 100%;
+    }
+    /* Añadimos estilos para el menú de dos niveles */
+    .navegacion>div>div {
+        display: none;
+        position: static;
+        background-color: var(--color2);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .navegacion>div:active>div {
+        display: block;
+    }
+    .navegacion>div>div>a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    /* Condiciones de productos */
+    .productos {
+        display: block;
+    }
+    #productos {
+        display: block;
+        width: 100%;
+    }
+    #productos .producto {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    /* Condiciones de la tabla */
+    #tabla-productos table thead {
+        background-color: white;
+        color: #000;
+    }    
+    /* Estilos para la tabla */
+    #tabla-productos {
+        width: 100%;
+        margin: auto;
+        color: black;
+    }
+    #tabla-productos table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #tabla-productos th,
+    #tabla-productos td {
+        border: 4px solid #000;
+        padding: 10px;
+    }    
+    /* Añade colores a las zonas de desarrollo */
+    #tabla-productos .desarrollo,
+    #tabla-productos .desarrollo-sub {
+        background-color: #439bd2;
+    }
+    /* Añade colores a las zonas de sistema y seguridad */
+    #tabla-productos .sistema,
+    #tabla-productos .seguridad,
+    #tabla-productos .seguridad-sub {
+        background-color: #a8a877;
+    }
+
+    /* Condiciones para las herramientas de desarrollo */
+    .contenedor {
+        flex-direction: column;
+    }
+    #herramientas-desarrollo,
+    #equipo-desarrollo,
+    #formulario-demo {
+        width: auto;
+    }
+    #herramientas-desarrollo img,
+    #equipo-desarrollo img,
+    #formulario-demo img {
+        width: 30%;
+        height: auto;
+    }
+
+    /* Condiciones para el Equipo de desarrollo */
+    #equipo-desarrollo {
+        width: 90%;
+    }
+    #equipo-desarrollo .empleado1,
+    #equipo-desarrollo .empleado2,
+    #equipo-desarrollo .empleado3 {
+        flex-direction: column;
+    }
+    #equipo-desarrollo .empleado1 img,
+    #equipo-desarrollo .empleado2 img,
+    #equipo-desarrollo .empleado3 img {
+        width: 30%;
+        height: auto;
+    }
+
+    /* Condiciones del formmulario */
+    #formulario-demo {
+        width: 90%;
+    }
+    #formulario-demo .obligatorio,
+    #formulario-demo .opcional {
+        font-size: 14px;
+    }
+
+    /* Condiciones del pie de página */
+    /* Ocultamos el bloque de Cookies y redes sociales */
+    footer .bloque1,
+    footer .bloque3 {
+        display: none;
+    }
+
+    /* Cambiamos la dirección y quitamos la viñetas */
+    footer .bloque2 ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer .bloque2 ul li {
+        margin: 0 40px;
+    }
+
+    /* Modificamos para que se subraye al seleccionar */
+    footer .bloque2 ul li:hover {
+        text-decoration: underline;
+    }
+}
