@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi web</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/tarea_06.js"></script>
+
+<body>
+    <header>
+        <div id="logo">
+            <img id="avatar" class="mifoto" src="./img/logo.jpg" alt="Mi foto">
+            <img id="logoCentro" class="mifoto" src="./img/ies.png" alt="Logo del centro" style="display: none;">
+            <h1 class="nombre"><i>Dayro Morales Cruz</i></h1>
+        </div>
+        <nav>
+            <!--Añadimos las casillas de verificación y el botón de inicialización-->
+            <fieldset>
+                <legend>Paneles visibles:</legend>
+                <div>
+                    <input type="checkbox" id="chkImagen" checked> Zona de Imagen
+                    <input type="checkbox" id="chkTexto" checked> Zona de Texto
+                </div>
+            </fieldset>
+            <button id="btnInicializar">Inicializar</button>
+        </nav>
+    </header>
+
+    <!--Añadimos las 2 zonas-->
+    <main>
+        <section id="zonaImagen">
+            
+            <!-- Zona de miniaturas -->
+            <div id="parte1">
+                <div id="miniaturas">
+                    <img src="./img/miniatura1.jpg" class="miniatura">
+                    <img src="./img/miniatura2.jpg" class="miniatura">
+                    <img src="./img/miniatura3.jpg" class="miniatura">
+                    <img src="./img/miniatura4.jpg" class="miniatura">
+                </div>
+
+                <!-- Zona de configuración -->
+                <div id="configuraciones">
+                    <div id="configuracion">
+                        <h2>Sobre el panel de imágenes</h2>
+                        <div>
+                            <label for="orientacion">Orientación:</label>
+                            <input type="radio" id="vertical" name="orientacion" value="vertical"> Vertical
+                            <input type="radio" id="horizontal" name="orientacion" value="horizontal"> Horizontal
+                        </div>
+                        <div>
+                            <label for="colorFondo">Color de fondo:</label>
+                            <input type="color" id="colorFondo">
+                        </div>
+                        <div>
+                            <h2>Sobre el contenedor de la imagen y la imagen seleccionada</h2>
+                            <label for="filtro">Filtro:</label>
+                            <select id="filtro">
+                                <option value="none">Ninguno</option>
+                                <option value="blur">Desenfoque (50%)</option>
+                                <option value="brightness">Brillo (150%)</option>
+                                <option value="contrast">Contraste (150%)</option>
+                                <option value="grayscale">Escala de grises (100%)</option>
+                            </select>
+                            
+                        </div>
+                        <div>
+                            <label for="grosorBorde">Grosor de borde:</label>
+                            <input type="number" id="grosorBorde">
+                            <label for="colorBorde">Color de borde:</label>
+                            <input type="color" id="colorBorde">
+                        </div>
+                    </div>
+
+                    <!-- Botón para ver el origen de las imágenes seleccionadas -->
+                    <div id="botonIni">
+                        <button id="btnVerOrigen">Origen de las imágenes</button>
+                        <p id="origenes"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zona de imágenes grandes (collage) -->
+            <div id="parte2">
+                <div id="collage">
+                    <img src="./img/ies.png" class="imagenGrande">
+                    <img src="./img/ies.png" class="imagenGrande">
+                    <img src="./img/ies.png" class="imagenGrande">
+                </div>
+            </div>
+        </section>
+
+        <section id="zonaTexto">
+            <div class="texto1 active">
+                <h1 class="titulo">DISEÑO DE INTERFACES WEB</h1>
+                <h1 class="titulo" style="display: none;">UNIDAD DE TRABAJO 6</h1>
+            </div>
+            <div class="texto1">
+                <button id="mostrarOcultar">Mostrar/Ocultar con Efecto</button>
+                <label for="velocidad">Velocidad: </label>
+                <input type="number" id="velocidad" value="2000">
+                <label for="separacion">Separación entre líneas: </label>
+                <input type="number" id="separacion" min="0" max="10">
+                <label for="fuente">Seleccione fuente: </label>
+                <select id="fuente">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+            <div id="historial">
+                <h2>Historial de acciones realizadas</h2>
+                <ul id="acciones"></ul>
+            </div>
+        </section>
+    </main>
+
+    <!--Creamos el pie de la página-->
+    <footer>
+        <div id="infoImagenes">
+            <h2>Información de las imágenes</h2>
+            <p id="autor">Autor: </p>
+            <p id="origen">Origen: </p>
+            <p id="licencia">Licencia: </p>
+        </div>
+        <div id="infoFiltros">
+            <h2>Filtros seleccionados</h2>
+            <ul id="filtros"></ul>
+        </div>
+        <div id="infoFuentes">
+            <h2>Fuentes utilizadas</h2>
+            <ul id="fuentes"></ul>
+        </div>
+        <div id="infoAdicional">
+            <h2>Información adicional</h2>
+            <p>Para las imágenes se utilizó el generador de imágenes por IA</p>
+            <p>Para la realización del código se utilizó Visual Studio Code</p>
+            <p>Información de utilidad: <a href="https://stackoverflow.com/">Stackoverflow</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
