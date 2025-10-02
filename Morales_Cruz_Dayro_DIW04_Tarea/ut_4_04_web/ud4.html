@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--rata css -->
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>DIW Unidad-4</title>
+    <!--favicon -->
+    <link rel="icon" href="../ut_4_01_img/07_logo.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="../ut_4_01_img/07_logo.svg" alt="logo" />
+      <h1 id="titulo">NUEVAS INFRAESTRUCTURAS</h1>
+      <img id="logo_aguadulce" src="../ut_4_01_img/03_imagen.png" alt="logo_aguadulce" />
+
+      <nav>
+        <a href="#imagen">
+          <img
+            class="nav_icono"
+            src="../ut_4_05_icons/icono_imagen.svg"
+            alt="Icono Imagen"
+          />
+        </a>
+        <a href="#audio">
+          <img
+            class="nav_icono"
+            src="../ut_4_05_icons/icono_audio.svg"
+            alt="Icono Audio"
+          />
+        </a>
+        <a href="#video">
+          <img
+            class="nav_icono"
+            src="../ut_4_05_icons/icono_video.svg"
+            alt="Icono Subir"
+          />
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section id="imagen">
+        <h2>Imagen</h2>
+        <h3>Imágenes fuentes</h3>
+        <div>
+          <figure>
+            <img src="../ut_4_01_img/01_imagen.jpg" alt="imagen fuente 1" />
+            <figcaption>Licencia: CC BY-NC</figcaption>
+          </figure>
+          <figure>
+            <img src="../ut_4_01_img/02_imagen.jpg" alt="imagen fuente 2" />
+            <figcaption>Licencia: CC BY-NC</figcaption>
+          </figure>
+        </div>
+        <h3>Composición</h3>
+        <div>
+          <figure>
+            <img src="../ut_4_01_img/04_composicion.png" alt="composición 1" />
+            <figcaption>Composición</figcaption>
+          </figure>
+        </div><br>
+        <h3>Imagen responsiva</h3>
+        <div>
+          <figure>
+            <!--si el ancho de la ventana es igual o menor a 779 píxeles, la imagen ocupará el 80% del ancho de la ventana (80vw).  
+            si el ancho de la ventana gráfica es igual o mayor a 780 píxeles, la imagen ocupará el 30% del ancho de la ventana (40vw).
+            El navegador seleccionará la imagen mas adecuada segun las reglas establecidas en 'sizes'. En este caso, hay dos opciones.
+          src= imagen predeterminada, que se utilizará si no se cumplen las condiciones especificadas en 'sizes' -->
+            <img
+              sizes="(max-width: 779px) 50vw, (min-width: 780px) 30vw"
+              srcset="
+                ../ut_4_01_img/06_composicion_mejorada_dim_650.jpg   650w,
+                ../ut_4_01_img/05_composicion_mejorada_dim_1100.jpg 1100w
+              "
+              src="../ut_4_01_img/05_composicion_mejorada_dim_1100.jpg"
+              alt="composicion mejorada a 779px 50% y 780px a 30%"
+            />
+            <figcaption>composicion mejorada</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="audio">
+        <h2>Audio</h2>
+        <div>
+          <audio controls preload="auto">
+            <source src="../ut_4_02_audio/01_audio.ogg" type="audio/mpeg" />
+            <source src="../ut_4_02_audio/02_audio.m4a" type="audio/ogg" />
+          </audio>
+          <p>Nombre archivo: 01_audio.ogg / 02_audio.m4a</p>
+          <p>Tamaño: 2,35 MB / 4.67 MB</p>
+        </div>
+      </section>
+
+      <section id="video">
+        <h2>Video</h2>
+        <div>
+          <!-- añadimos id a <video> para trabajar con javascript -->
+          <video
+            id="reproductor"
+            width="100%"
+            height="100%"
+            poster="../ut_4_03_video/portada.png"
+            preload="metadata"
+          >
+            <source src="../ut_4_03_video/02_video.webm" type="video/mpeg" />
+            <source src="../ut_4_03_video/01_video.mp4" type="video/ogg" />
+          </video>
+          <div id="botones">
+            <div id="volumen">
+              <button id="subir">Subir volumen</button>
+              <button id="bajar">Bajar volumen</button>
+            </div>
+            <div id="play">
+              <button id="reproducir">Reproducir</button>
+              <button id="pausar">Pausa</button>
+            </div>
+          </div>
+          <p>Nombre extensión: Color Highlight</p>
+          <p>Tipo recurso: Extensión Visual Studio Code</p>
+          <p>Descripción: Resalta los colores CSS en línea y en los archivos de estilo</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Software para edición imágenes: <strong>GIMP</strong></p>
+      <p>Software para edición audio: <strong>AUDACITY</strong></p>
+      <p>Software para edición video: <strong>OPENSHOT</strong></p>
+      <p>Otros softwares: <strong>INKVIEW</strong> </p>
+
+    </footer>
+    <div id="inicio">
+      <a href="#logo">
+        <img
+          class="nav_icono"
+          src="../ut_4_05_icons/icono_subir.svg"
+          alt="Icono Audio"
+        />
+      </a>
+    </div>
+    <!-- ruta a script -->
+    <script src="../ut_4_04_web/app/app.js"></script>
+  </body>
+</html>

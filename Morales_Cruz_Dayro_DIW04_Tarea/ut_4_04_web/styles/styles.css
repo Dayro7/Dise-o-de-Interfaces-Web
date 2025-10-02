@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+/* Definición de variables */
+:root {
+  --color-principal: #2a8eaf;
+  --color-secundario: #64ccc5;
+  --color-auxiliar: #04364a;
+  --fuente-online: "Work Sans";
+  --sombra: 3px 3px 6px 0px #676a6b;
+  --borde: solid 3px var(--color-secundario);
+}
+
+* {
+  box-sizing: border-box; /* Usamos border-box para no tener en cuenta los 'margin' y 'padding' durante la configuración de la página */
+}
+body {
+  background-color: #e2dfb5;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr auto auto auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  font-family: var(--fuente-online);
+  margin: 0;
+  padding: 0;
+  /*espacio para la cabecera fija (fixed)*/
+  /* min-height: 100vh; */
+}
+
+/* Estilos del encabezado (fixed)*/
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "logo titulo"
+    "nav nav";
+  background-color: var(--color-principal);
+  border-bottom: var(--borde);
+}
+#logo {
+  grid-area: logo;
+  height: 4rem;
+  margin: 4px 15px;
+  filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+}
+#logo_aguadulce {
+  height: 4rem;
+  margin: 4px 15px;
+  filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+}
+
+#titulo {
+  grid-area: titulo;
+  display: flex;
+  /* centramos el titulo en el navegador */
+  position: absolute;
+  right: 630px;
+  top: 15px;
+  margin: 0;
+  filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+}
+
+nav {
+  width: 280px;
+  grid-area: nav;
+  display: flex;
+  flex-direction: row;
+  margin: 5px 60px;
+  background-color: rgb(200, 226, 226);
+  /*dejaremos el nav fijado en la parte superior para tener acceso a los iconos de navegacion en todo momento*/
+  position: fixed;
+  right: 10px;
+  top: 12px; /*distancia desde la parte superior*/
+  z-index: 1000; /*siempre en la capa mas exterior*/
+  border: var(--borde);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  justify-content: center;
+}
+
+.nav_icono {
+  height: 1.5rem;
+  margin: 5px 30px;
+  filter: drop-shadow(2px 2px 2px rgb(120, 127, 131));
+}
+/* estilos para main */
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "imagen"
+    "audio"
+    "video";
+}
+
+/* color para los 'h2' */
+main section h2 {
+  color: rgb(45, 45, 190);
+}
+
+#imagen {
+  grid-area: imagen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+
+/* estilos comunes para todos los div de imagen */
+#imagen div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* estilos para los dos primeros div de imagen */
+#imagen div:nth-of-type(1) img,
+#imagen div:nth-of-type(2) img {
+  height: 15rem;
+  margin: 10px;
+  border: var(--borde);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+}
+/* estilos para el tercer div de imagen (imagen responsiva) sin aplicar tamaños para la adaptacion por resolucion */
+#imagen div:nth-of-type(3) img {
+  border: var(--borde);
+  border-radius: 20px;
+  margin: 0;
+  box-shadow: var(--sombra);
+}
+#imagen div figure {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+#audio {
+  grid-area: audio;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+
+#audio div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--color-principal);
+  border: var(--borde);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  align-items: center;
+  color: white;
+}
+audio {
+  margin: 10px;
+}
+
+#video {
+  grid-area: video;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+#video > div {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  min-width: 500px;
+  padding: 20px;
+  background-color: var(--color-principal);
+  border: var(--borde);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  align-items: center;
+  color: white;
+}
+video {
+  margin: 10px;
+  border-radius: 20px;
+}
+
+/* estilo para los botones del reproductor de video */
+#botones {
+  display: flex;
+  border: var(--borde);
+  border-radius: 20px;
+}
+#volumen {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  align-items: center;
+}
+
+#play {
+  display: flex;
+  margin: 5px;
+  align-items: center;
+}
+
+#botones button {
+  border-radius: 20px;
+  padding: 10px;
+  font-family: var(--fuente-online);
+  margin: 4px;
+  background-color: var(--color-auxiliar);
+  color: white;
+  border: none;
+  box-shadow: var(--sombra);
+}
+
+#botones button:hover {
+  background-color: var(--color-secundario);
+  color: white;
+  color: var(--color-auxiliar);
+  cursor: pointer;
+}
+/* estilos para el footer */
+footer {
+  grid-area: footer;
+  background-color: var(--color-principal);
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  border-top: var(--borde);
+}
+
+footer p {
+  filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+}
+
+#inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(200, 226, 226);
+  border: var(--borde);
+  border-radius: 50%;
+}
