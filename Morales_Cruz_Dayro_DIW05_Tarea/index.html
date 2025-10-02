@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>DIW Unidad-5 Dayro Morales Cruz</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="./img/logo.jpg" alt="logo" />
+        <h1 id="titulo">Dayro Morales Cruz</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#ejercicio2">Transformaciones-Transiciones</a></li>
+            <li><a href="#ejercicio3">Animaciones CSS</a></li>
+            <li><a href="#ejercicio4">Animaciones Canvas</a></li>
+            <li><a href="#ejercicio5">Animaciones SVG</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        <h2>Ejercicio 2</h2>
+        <div class="ejercicio2">
+            <div class="icono-contenedor1">
+                <div class="icono1">
+                    <img src="./img/icono1.png" alt="Icono 1">
+                </div>
+                <p class="icono">Búsqueda</p>
+            </div>
+            <div class="icono-contenedor2">
+                <div class="icono2">
+                    <img src="./img/icono2.png" alt="Icono 2">
+                </div>
+                <p class="icono">Explora</p>
+            </div>
+        </div>
+
+        <h2>Ejercicio 3</h2>
+        <div id="ejercicio3">
+            <div id="bateria">
+                <div id="polo">+</div> <!-- Agregamos un nuevo elemento para el polo -->
+                <div id="carga"></div>
+            </div>
+            <p id="texto_1">¡Carga completa!</p>
+            <div id="botones">
+                <button onclick="pausarAnimaciones()">Pausar</button>
+                <button onclick="reanudarAnimaciones()">Reanudar</button>
+            </div>
+        </div>
+
+        <h2>Ejercicio 4 y 5</h2>
+        <div id="ejercicio4-5">
+            <div id="ejercicio4" style="display: flex; flex-direction: column; align-items: center;">
+                <canvas id="Canvas" width="150" height="300" style="margin:auto;">
+                </canvas>
+                <!-- Creamos un boton para que inicie la función de iniciar carga -->
+                <button onclick="startAnimation()">Iniciar carga</button>
+                <p id="message" style="color: red;"></p>
+            </div>
+            <div id="ejercicio5">
+                <svg id="SVG" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Línea quebrada -->
+                    <path id="path1"
+                        d="M20 170 L 70 170 L 70 130 L 120 130 L 120 90 L 170 90 L 170 50 L 220 50 L 220 50"
+                        stroke="#ff6600" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-dasharray="1000" stroke-dashoffset="1000" />
+                
+                    <!-- Línea inclinada -->
+                    <path id="path2" d="M20 50 L 220 110" stroke="#0066ff" fill="none" stroke-width="10"
+                        stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" />
+                
+                    <!-- Línea curva -->
+                    <path id="path3" d="M20 90 Q 120 170, 220 170" stroke="#66ff66" fill="none" stroke-width="7"
+                        stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" />
+                
+                    <!-- aplicamos un cambio de color y de tamaño de la incial significativo -->
+                    <text font-size="60" font-family="Verdana" fill="#ff6600">
+                        <textPath id="D" href="#path1" startOffset="0%">D</textPath>
+                        <animateMotion id="DAnimation" begin="indefinite" dur="2s" fill="freeze">
+                            <mpath href="#path1" />
+                        </animateMotion>
+                    </text>
+                    <text font-size="40" font-family="Arial" fill="#0066ff">
+                        <textPath id="M" href="#path2" startOffset="0%">M</textPath>
+                        <animateMotion id="MAnimation" begin="indefinite" dur="2s" fill="freeze">
+                            <mpath href="#path2" />
+                        </animateMotion>
+                    </text>
+                    <text font-size="40" font-family="Arial" fill="#66ff66">
+                        <textPath id="C" href="#path3" startOffset="0%">C</textPath>
+                        <animateMotion id="CAnimation" begin="indefinite" dur="2s" fill="freeze">
+                            <mpath href="#path3" />
+                        </animateMotion>
+                    </text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="bloque1">
+            <h2>Enlaces útiles</h2>
+            <ul>
+                <li><a
+                        href="https://marketing4ecommerce.net/canva-una-herramienta-de-diseno-imprescindible-para-el-social-media/">Aprende
+                        Canva</a></li>
+                <li><a href="https://www.freecodecamp.org/espanol/news/que-es-svg-explicacion-de-etiquetas-imagenes/">Acerca
+                        de SVG</a></li>
+                <li><a href="https://keepcoding.io/blog/la-historia-de-javascript/">Javascript</a></li>
+            </ul>
+        </div>
+        <div class="bloque2">
+            <span class="copyleft">&copy;</span>
+            <h2>2024 Dayro M.C. All rights reserved.</h2>
+        </div>
+        <div class="bloque3">
+            <h2>Síguenos</h2>
+            <img src="./img/twitter.png" alt="Twitter">
+            <img src="./img/facebook.png" alt="Facebook">
+        </div>
+    </footer>
+</body>
+
+<script src="./script/script.js"></script>
+
+</html>

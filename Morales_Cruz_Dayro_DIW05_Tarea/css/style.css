@@ -1,0 +1,592 @@
+/* EL TAMAÑO DEL SCROLL VÉRTICAL DE LA TAREA ES PARA QUE LAS FUNCIONES DE LA BARRA
+DE NAVEGACIÓN SEAN APRECIABLES */
+/* declaramos algunas variables para usar, el borde de la página y 2 fuentes */
+:root {
+    --color-principal: #2a8eaf;
+    --color-secundario: #64ccc5;
+    --sombra: 3px 3px 6px 0px #676a6b;
+    --borde: solid 3px var(--color-secundario);
+}
+
+* {
+    box-sizing: border-box;
+    /* Usamos border-box para no tener en cuenta los 'margin' y 'padding' durante la configuración de la página */
+}
+
+@font-face {
+    font-family: 'Dacing';
+    src: url('../fonts/DancingScript-SemiBold.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: 'Josefin';
+    src: url('../fonts/JosefinSans-Bold.ttf') format('woff2');
+}
+
+/* le damos formato a los h1, h2 y p del html */
+h2,
+p,
+h1,
+.copyleft {
+    color: rgb(7, 24, 209);
+    font-style: oblique;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustamos nuestro cuerpo y encabezado completo */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #e2dfb5;
+    padding: 10px;
+    border: solid 3px rgb(62, 73, 205);
+}
+
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'logo titulo nav';
+    background-color: #e2dfb5;
+    padding: 10px;
+    border-bottom: solid 3px rgb(62, 73, 205);
+}
+
+nav {
+    display: grid;
+    font-family: 'Josefin';
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'logo titulo nav';
+    background-color: #e2dfb5;
+    padding: 10px;
+    border-bottom: solid 3px rgb(62, 73, 205);
+}
+
+#logo {
+    grid-area: logo;
+    padding: 1rem;
+    height: 10rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    border-radius: 90%;
+
+}
+
+/* Ajustamos el titulo*/
+#titulo {
+    grid-area: titulo;
+    display: flex;
+    font-family: 'Dacing';
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dacing';
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* EJERCICIO 1 */
+/* Creamos la transición de la barra de navegación */
+nav ul li {
+    transition: color 0.5s ease, font-size 0.5s ease;
+    color: rgb(62, 73, 205);
+    margin-right: 20px;
+}
+
+/* Creamos el cambio al realizarse la animación, que pase a rojo y aumente el tamaño de la fuente */
+nav ul li:active {
+    color: red;
+    font-size: 20px;
+}
+
+
+/* EJERCICIO 2 */
+.ejercicio2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e2dfb5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border: solid 3px rgb(62, 73, 205);
+}
+
+/* Ajustamos el primer contenedor del icono de la izquierda */
+.icono-contenedor1 {
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(179, 226, 226);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    /* Bordes redondeados de la caja */
+    padding: 10px;
+    transition: width 0.5s ease;
+    width: 80px;
+    /* Ancho inicial del contenedor */
+}
+
+/* añadimos las propiedades del hover */
+.icono-contenedor1:hover {
+    width: 300px;
+    /* Ancho del contenedor al hacer hover */
+    transform: scale(1.1);
+    background-color: rgb(0, 81, 255);
+    margin-left: 14px;
+    height: 80px;
+}
+
+/* Ajustamos el segundo contenedor del icono de la derecha */
+.icono-contenedor2 {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(179, 226, 226);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 10px;
+    transition: width 0.5s ease;
+    width: 80px;
+    /* Ancho inicial del contenedor */
+}
+
+/* añadimos las propiedades del hover */
+
+.icono-contenedor2:hover {
+    width: 300px;
+    height: 80px;
+    /* Ancho del contenedor al hacer hover */
+    transform: scale(1.1);
+    background-color: rgb(0, 81, 255);
+    margin-right: 14px;
+}
+
+/* a los iconos le ponemos la posición relativa y que el cambio sea al colocar el cursor encima */
+.icono1,
+.icono2 {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: orange;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #333;
+    padding: 10px;
+}
+
+/* Añadimos la escala y el traslado del icono haciendo que se agrande la pestaña y el icono rote 360º */
+.icono-contenedor1:hover .icono1 {
+    transform: scale(1.1);
+    transform: translate(370%, 0%) rotate(360deg) scale(1);
+    position: absolute;
+    width: 60px;
+    background-color: white;
+    transition: all 0.5s ease;
+
+}
+
+.icono-contenedor2:hover .icono2 {
+    transform: scale(1.1);
+    /* transladamos la animacion y hacemos que rote */
+    transform: translate(-370%, 0%) rotate(360deg) scale(1);
+    position: absolute;
+    width: 60px;
+    background-color: white;
+    transition: all 0.5s ease;
+
+}
+
+/* Le damos posición relativa  a la imagen para que el cambio sea igual y le añadimos el traslado de la pagina y aumentamos la escala */
+.icono1 img {
+    width: 70%;
+    height: auto;
+    transform: scale(1.1);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* movemos la imagen de lugar*/
+    transform: translate(-50%, -50%);
+
+}
+
+.icono2 img {
+    width: 70%;
+    height: auto;
+    /* añadimos la escala para que se agrande */
+    transform: scale(1.1);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Añadimos la posición abosluta para que este presente y añadimos las modificaciones para que no sea visible antes de la transición con opacity: 0*/
+.icono {
+    position: absolute;
+    text-align: center;
+    color: black;
+    /* hace que no sea visible*/
+    opacity: 0;
+    /* la transición es a todo, durante 0,8s de lento a rapido */
+    transition: all 0.8s ease;
+    font-size: 16px;
+}
+
+/* añadimos la transformación al hover y lo hacemos visible con opacity: 1 */
+.icono-contenedor2:hover .icono {
+    position: absolute;
+    /* hace que sea visible */
+    opacity: 1;
+    transform: translate(-90px, -8px);
+    color: white;
+    font-size: 24px;
+}
+
+.icono-contenedor1:hover .icono {
+    position: absolute;
+    opacity: 1;
+    transform: translate(80px, -8px);
+    color: white;
+    font-size: 24px;
+}
+
+/* EJERCICIO 3 */
+
+/* mediante keyframe añadimos el procentaje y el cambio de color de la animación de carga*/
+@keyframes cargar {
+    5% {
+        background-color: #c20505;
+        height: 0;
+    }
+
+    /* añadimos el porcentaje de la animación, el color y que vaya sumando altura */
+    10% {
+        background-color: #c20505;
+        height: 10%;
+    }
+
+    15% {
+        background-color: #c20505;
+        height: 15%;
+    }
+
+    20% {
+        background-color: #c20505;
+        height: 20;
+    }
+
+    25% {
+        background-color: #c20505;
+        height: 25%;
+    }
+
+    30% {
+        background-color: #c20505;
+        height: 30%;
+    }
+
+    35% {
+        background-color: #c20505;
+        height: 35%;
+    }
+
+    /* A partir del 40% cambiamos el color a amarillo que indica media carga */
+    40% {
+        background-color: #f6ff00;
+        height: 40%;
+    }
+
+    45% {
+        background-color: #f6ff00;
+        height: 45%;
+    }
+
+    50% {
+        background-color: #f6ff00;
+        height: 50%;
+    }
+
+    55% {
+        background-color: #f6ff00;
+        height: 55%;
+    }
+
+    60% {
+        background-color: #f6ff00;
+        height: 60%;
+    }
+
+    65% {
+        background-color: #f6ff00;
+        height: 65%;
+    }
+
+    70% {
+        background-color: #f6ff00;
+        height: 70%;
+    }
+
+    75% {
+        background-color: #f6ff00;
+        height: 75%;
+    }
+
+    /* Al 80% cambiamos a verde para mostrar el proceso de carga casi completo */
+    80% {
+        background-color: #4dff00;
+        height: 80%;
+    }
+
+    85% {
+        background-color: #4dff00;
+        height: 85%;
+    }
+
+    90% {
+        background-color: #4dff00;
+        height: 90%;
+    }
+
+    95% {
+        background-color: #4dff00;
+        height: 95%;
+    }
+
+    /* En el 98 y 100%, cambiamos a un verde oscuro para diferenciarlo de la carga completa final */
+    98% {
+        background-color: #179f05;
+        height: 98%;
+    }
+
+    100% {
+        background-color: #179f05;
+        height: 100%;
+    }
+}
+
+/* Añadimos la disposición del ejercicio3 */
+#ejercicio3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    border: solid 3px rgb(62, 73, 205);
+    padding: 20px;
+    background-color: #e2dfb5;
+}
+
+/* modificamos lo que será nuestra pila */
+#bateria {
+    position: relative;
+    width: 99px;
+    height: 200px;
+    border: solid 5px rgb(62, 73, 205);
+    border-radius: 4px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    top: 25px;
+    margin-bottom: 60px;
+    background-color: black;
+}
+
+/* añadimos el polo positivo con un fondo negro para que no sea visible el content */
+#polo {
+    content: "+";
+    position: absolute;
+    font-size: 20px;
+    width: 55px;
+    height: 30px;
+    color: black;
+    border: solid 5px rgb(62, 73, 205);
+    border-radius: 4px;
+    text-align: center;
+    top: -30px;
+    background-color: black;
+}
+
+/* añadimos los parámetros para la animación de carga */
+#carga {
+    position: absolute;
+    width: 90px;
+    height: 190px;
+    animation-name: cargar;
+    /* duración de la animacion */
+    animation-duration: 6s;
+    /* Manera en la que se ejecuta la animación para que quede completa */
+    animation-fill-mode: forwards;
+    bottom: 0;
+}
+
+#botones {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+/* Añadimos el keyframe para la animación del texto */
+@keyframes moverTexto {
+
+    /* comenzamos la animación para que no se vea inicialmente*/
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+
+    /* hacemos que vaya rotando, agrandando y vaya apareciendo*/
+    25% {
+        transform: translate(20px, 20px) scale(1.1) rotate(90deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(40px, 40px) scale(1.1) rotate(180deg);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translate(20px, 20px) scale(1.1) rotate(270deg);
+        opacity: 0.5;
+    }
+
+    /* lo hacemos visible y lo colocamos justo debajo de la animación */
+    100% {
+        transform: translate(0, 0) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+
+#texto_1 {
+    display: block;
+    animation: moverTexto 3s forwards;
+    /* hacemos que la animación tenga un retardo de la mitad de la animación anterior haciendo que dure la mitad del tiempo */
+    animation-delay: 3s;
+    position: absolute;
+    top: 105%;
+    opacity: 0;
+    color: #179f05;
+}
+
+#ejercicio4-5 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    border: solid 3px rgb(62, 73, 205);
+    padding: 20px;
+    background-color: #e2dfb5;
+}
+
+/* EJERCICIO 4 */
+#ejercicio4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: solid 3px rgb(62, 73, 205);
+    padding: 20px;
+    background-color: #e2dfb5;
+}
+
+/* EJERCICIO 5 */
+#ejercicio5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border: solid 3px rgb(62, 73, 205);
+    padding: 10px;
+    background-color: #e2dfb5;
+    border-radius: 4px;
+}
+
+/* Definimos el pie de página*/
+footer {
+    grid-area: footer;
+    display: flex;
+    background-color: var(--color-principal);
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+    justify-content: space-around;
+    border-top: var(--borde);
+}
+
+footer .bloque {
+    flex: 1;
+}
+
+/*  definimos los bloques */
+footer .bloque1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .bloque1 h2 {
+    margin-bottom: 10px;
+}
+
+
+footer .bloque1 ul {
+    list-style-type: square;
+}
+
+footer .bloque1 ul li:hover {
+    color: var(--color3);
+}
+
+/* Segundo bloque */
+footer .bloque2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer .bloque2 h2 {
+    margin-bottom: 10px;
+}
+
+footer .bloque2 input[type="checkbox"]:hover {
+    outline: 1px solid var(--color2);
+}
+
+/* Tercer bloque */
+footer .bloque3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .bloque3 h2 {
+    margin-bottom: 10px;
+}
+
+footer .bloque3 img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--color2);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+footer .bloque3 img:hover {
+    background-color: var(--color3);
+    border-color: var(--color3);
+}
